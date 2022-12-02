@@ -23,7 +23,7 @@ const garajeReducer = (state = INITIAL_STATE, action)=>{
             return{...state, loading: false, error: action.payload}
  */
         default:
-            console.log(state);
+            /* console.log(state); */
             return state;
             
             
