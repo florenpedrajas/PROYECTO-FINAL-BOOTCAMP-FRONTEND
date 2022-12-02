@@ -6,7 +6,7 @@ export const getLocation = ()=>async(dispatch)=>{
 
     try {
 
-        function getPosition() {
+       /*  function getPosition() {
             // Simple wrapper
             return new Promise((res, rej) => {
                 navigator.geolocation.getCurrentPosition(res, rej);
@@ -22,7 +22,7 @@ export const getLocation = ()=>async(dispatch)=>{
         const res = main()
         
         dispatch({type: 'getLocation', payload: "hola"})
-
+ */
     } catch (error) {
         console.log(error);
         /* dispatch({type:'errorClothes', payload:error.message}) */

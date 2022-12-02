@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import logo from './logo.svg';
-import {getLocation} from "../src/redux/garaje/garaje.functions"
+import {getLocation} from "./redux/garaje/garaje.functions"
 import './App.css';
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
   
   useEffect(() => {
     console.log("estoy dentro");
-    dispatch(getLocation());
+    /* dispatch(getLocation()); */
   }, []);
 
   
