@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {getLocation} from "./redux/garaje/garaje.functions"
-import './App.css';
+import './App.scss';
 
 function App() {
   
