@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../../Components/Navbar/Navbar'
 import { getParkings } from '../../redux/Parkings/parkings.function';
 import './Home.scss'
-
+import BotonMapa from '../../Components/BotonMapa/BotonMapa';
 const Home = () => {
   const dispatch = useDispatch([]);
   const { parkings, isLoading, error } = useSelector(
@@ -54,7 +54,9 @@ const Home = () => {
               );
             })}
         </div>
+        <BotonMapa/>
       </div>
+      
     </div>
   )
 }

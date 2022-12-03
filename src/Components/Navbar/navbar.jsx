@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { filterParkings } from "../../redux/Parkings/parkings.function"
+import { NavLink } from 'react-router-dom'
 import Menu from '../Menu/Menu';
 import './Navbar.scss'
 
@@ -20,7 +21,7 @@ const Navbar = () => {
 
             <div className='divNavbar'>
             <nav>
-                <img src='./assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className='imgNav'/>
+                <NavLink to="/" ><img src='./assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className='imgNav'/></NavLink>
                 <label> <input type='text' placeholder='Buscar Estacionamiento...' className='navbar_input' onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>
                 <img src='./assets/MenuHamburguesa.png' alt='Menu' className='Hamburguermenu' onClick={() => setMenu(!menu)}/>
             </nav>
