@@ -6,6 +6,7 @@ import './App.scss';
 import Home from "./Pages/Home/Home";
 import FormRent from "./Pages/FormRent";
 import Map from "./Components/map/map";
+import FormLogIn from "./Pages/LogIn/FormLogIn";
 function App() {
   
   const dispatch = useDispatch();
