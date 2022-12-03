@@ -5,16 +5,11 @@ import { Link } from 'react-router-dom'
 const FormLogIn = () => {
 
   const [state,setState] = useState({
-    longitude:0,
-    latitude:0
+    longitude:54.8,
+    latitude:45.6
   }
   )
 
-
-  
-  
-  
-  
   useEffect(()=>{
     navigator.geolocation.getCurrentPosition(
       function(position){
@@ -27,20 +22,21 @@ const FormLogIn = () => {
     )
   },[])
 
-  
+  let long = state.longitude
+  let lat = state.latitude
 
   return (
     
     <div>
-    <h1>longitud{state.longitude}</h1>
-    <h1>latitud{state.latitude}</h1>
-    <Map latitude={state.latitude} longitud={state.longitude}/>
-    {/* <Link to={{
+    <h1>longitud{long}</h1>
+    <h1>latitud{lat}</h1>
+    {/* <Map long={long.toString()} lat={lat.toString()}/> */}
+    <Link to={{
       pathname:"/map",
+      }}
       state
-      }}> 
-      See my location
-    </Link> */}
+      
+    >See my location</Link>
     </div>
     
     
