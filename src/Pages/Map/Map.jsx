@@ -1,8 +1,8 @@
 import React, { useEffect, useState ,createContext} from 'react'
-import Map from "../Components/map/map"
-import { Link } from 'react-router-dom'
+import Map from "../../Components/map/map"
+import './Map.scss'
 
-const FormLogIn = () => {
+const MapPage = () => {
 
   const [state,setState] = useState({
     longitude:54.8,
@@ -43,4 +43,4 @@ const FormLogIn = () => {
   )
 }
 
-export default FormLogIn
+export default MapPage

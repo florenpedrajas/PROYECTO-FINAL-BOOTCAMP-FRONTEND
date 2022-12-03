@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Menu from '../Menu/Menu';
-import NavlinkReutilizable from '../Navlink/Navlink';
 import './Navbar.scss'
 
 const Navbar = () => {
@@ -15,8 +14,8 @@ const Navbar = () => {
             <div className='divNavbar'>
             <nav>
                 <img src='./assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className='imgNav'/>
-                <input type='text' placeholder='Buscar Estacionamiento...' className='navbar_input'></input>
-                <img src='./assets/MenuHamburguesa.png' alt='Menu' className='menuHamburguesa' onClick={(e) => setMenu(!menu)}/>
+                <label>Buscar: <input type='text' placeholder='Buscar Estacionamiento...' className='navbar_input'></input></label>
+                <img src='./assets/MenuHamburguesa.png' alt='Menu' className='Hamburguermenu' onClick={(e) => setMenu(!menu)}/>
             </nav>
             </div>
             {menu === true &&
