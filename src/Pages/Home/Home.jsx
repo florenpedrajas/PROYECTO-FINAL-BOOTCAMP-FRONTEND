@@ -27,14 +27,14 @@ const Home = () => {
                 <div
                   className={
                     park.size === "caravana"
-                      ? "card-caravana"
+                      ? "card caravana"
                       : park.size === "moto"
-                      ? "card-moto"
+                      ? "card moto"
                       : park.size === "furgoneta"
-                      ? "card-furgoneta"
+                      ? "card furgoneta"
                       : park.size === "camion"
-                      ? "card-camion"
-                      : "card-turismo"
+                      ? "card camion"
+                      : "card turismo"
                   }
                   key={park._id}
                 >
