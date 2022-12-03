@@ -10,11 +10,11 @@ div{
             .card{
                 width: 25%;
                 height: 300px;
-                overflow-y: scroll;
-                border: 1px solid black;
+                
+                
                 border-radius: 10px;
                 padding: 10px;
-                margin-bottom: 20px;
+                margin-bottom: 50px;
                 .park-libre{
                     color: rgb(6, 199, 6);
                     font-family: 'Kanit', sans-serif;
@@ -55,34 +55,35 @@ div{
                     font-weight: 800;
                 }
                 img{
+                    border-radius: 20px;
                     margin-top: 10px;
                     width:100%;
+                    height: 200px;
                     max-height: 300px;
+                    
                 }
             }
             .card::-webkit-scrollbar {
                 width: 0px;
             }
             .card:hover{
-                transform: scale(1.2);
-                transition-property: transform;
-                transition-duration: 1s;
-                transition-timing-function: ease-in;
+                
+                
             }
             .camion{
-                background-color: rgb(65, 65, 65);
+                
             }
             .furgoneta{
-                background-color: rgb(146, 145, 145);
+                
             }
             .moto{
-                background-color: rgb(114, 114, 114);
+                
             }
             .turismo{
-                background-color: rgb(99, 99, 99);
+                
             }
             .caravana{
-                background-color: rgb(43, 43, 43);
+                
             }
         }
     }
