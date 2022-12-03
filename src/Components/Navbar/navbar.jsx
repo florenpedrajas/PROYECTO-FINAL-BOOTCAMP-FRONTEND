@@ -10,16 +10,18 @@ const Navbar = () => {
 /* por que hace falta onClick={() => setMenu(!menu)} */ 
     const navigate= useNavigate();
     const [menu, setMenu]= useState(false)
+
     const { parkings, isLoading, error } = useSelector(
         (state) => state.parkings
-      );
+    );
+
     return (
         <>
 
             <div className='divNavbar'>
             <nav>
                 <img src='./assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className='imgNav'/>
-                <label>Buscar: <input type='text' placeholder='Buscar Estacionamiento...' className='navbar_input' onInput={dispatch(filterParkings(parkings))} ></input></label>
+                <label>Buscar: <input type='text' placeholder='Buscar Estacionamiento...' className='navbar_input' onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>
                 <img src='./assets/MenuHamburguesa.png' alt='Menu' className='Hamburguermenu' onClick={() => setMenu(!menu)}/>
             </nav>
             </div>

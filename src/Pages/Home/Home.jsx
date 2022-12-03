@@ -9,7 +9,7 @@ const Home = () => {
   const { parkings, isLoading, error } = useSelector(
     (state) => state.parkings
   );
-  //!POr que has hecho el state.parkings
+
   useEffect(() => {
     dispatch(getParkings('/'));
   }, []);

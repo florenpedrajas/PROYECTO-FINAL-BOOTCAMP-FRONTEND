@@ -10,20 +10,19 @@ export const getParkings = () => async(dispatch) =>{
     }
 }
 export const filterParkings = (event, parkings) => async(dispatch) =>{
-    dispatch({type: 'gettingParking'})
+    dispatch({type: 'gettingParkings'})
     try {
         const inputValue =  event.target.value.toLowerCase()
         const filterGarajes = parkings.filter((parking) => {
-            const matchName = parking.adress.toLowerCase().includes(inputValue)
+        const matchName = parking.adress.toLowerCase().includes(inputValue)
             
             return matchName
         }
             
 
         )
-        
-        dispatch({type:'getParking', payload: filterGarajes})
+        dispatch({type:'getParkings', payload: filterGarajes})
     } catch (error) {
-        dispatch({type: 'errorParking', payload: error.message});
+        dispatch({type: 'error', payload: error.message});
     }
 }
