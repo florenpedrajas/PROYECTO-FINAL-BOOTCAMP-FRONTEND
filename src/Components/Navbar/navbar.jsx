@@ -8,6 +8,7 @@ const Navbar = () => {
 
     const navigate= useNavigate();
     const [menu, setMenu]= useState(false)
+    
 
     return (
         <>
