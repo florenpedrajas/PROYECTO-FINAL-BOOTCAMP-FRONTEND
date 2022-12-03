@@ -9,15 +9,11 @@ import Map from "./Components/map/map";
 import FormLogIn from "./Pages/LogIn/FormLogIn";
 function App() {
   
-  const dispatch = useDispatch();
+  
 
   
   
-  useEffect(() => {
-    /* console.log("estoy dentro"); */
-    /* dispatch(getLocation()); */
-  }, []);
-
+  
   
 
   return (
