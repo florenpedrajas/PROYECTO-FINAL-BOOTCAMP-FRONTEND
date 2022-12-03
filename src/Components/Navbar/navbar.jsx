@@ -21,7 +21,7 @@ const Navbar = () => {
             <div className='divNavbar'>
             <nav>
                 <img src='./assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className='imgNav'/>
-                <label>Buscar: <input type='text' placeholder='Buscar Estacionamiento...' className='navbar_input' onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>
+                <label> <input type='text' placeholder='Buscar Estacionamiento...' className='navbar_input' onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>
                 <img src='./assets/MenuHamburguesa.png' alt='Menu' className='Hamburguermenu' onClick={() => setMenu(!menu)}/>
             </nav>
             </div>

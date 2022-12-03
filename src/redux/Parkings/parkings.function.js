@@ -13,6 +13,7 @@ export const filterParkings = (event, parkings) => async(dispatch) =>{
     dispatch({type: 'gettingParkings'})
     try {
         const inputValue =  event.target.value.toLowerCase()
+        console.log(inputValue);
         const filterGarajes = parkings.filter((parking) => {
         const matchName = parking.adress.toLowerCase().includes(inputValue)
             
