@@ -6,6 +6,7 @@ const Home = () => {
     <div>
       <Navbar/>
       <div>
+        map
         <h1>Estoy en la Home Page</h1>
       </div>
 

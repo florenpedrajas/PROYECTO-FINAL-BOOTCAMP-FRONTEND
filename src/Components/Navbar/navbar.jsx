@@ -11,6 +11,7 @@ const Navbar = () => {
 
     return (
         <>
+            
             <div className='divNavbar'>
             <nav>
                 <img src='./assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className='imgNav'/>
