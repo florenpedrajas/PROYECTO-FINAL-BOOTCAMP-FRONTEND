@@ -1,7 +1,26 @@
 .divNavbar{
+    position: relative;
     nav{
+        position: fixed;
+        display: flex;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
+        height: 80px;
+        background-color: antiquewhite;
+        label{
+            font-weight: 600;
+            input{
+            height: 20px;
+        }
+        }
+        
+        .Hamburguermenu{
+            width: 50px;
+        }
         .imgNav{
-            height: 80px;
+            top: 15px;
+            height: 50px;
         }
     } 
 }

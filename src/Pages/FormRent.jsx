@@ -9,3 +9,4 @@ const FormRent = () => {
 }
 
 export default FormRent;
+
