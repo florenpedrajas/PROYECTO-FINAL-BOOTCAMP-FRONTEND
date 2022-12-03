@@ -39,6 +39,15 @@ const Home = () => {
                   key={park._id}
                 >
                   <h2>{park.adress}</h2>
+                  <p className='park-price'>Couta por noche: {park.price}</p>
+                  <p className='park-size'>Tamaño apto para {park.size}</p>
+                  <p className={
+                    park.busy === false
+                    ? "park-libre"
+                    : "park-ocupado"
+                  }><p id='park-p'>Disponibilidad Actual:</p>{park.busy === false
+                  ? "DISPONIBLE"
+                  : "OCUPADO"}</p>
                   <img src={park.image} alt={park.adress} />
                 </div>
               );
