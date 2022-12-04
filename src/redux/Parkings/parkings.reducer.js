@@ -10,7 +10,7 @@ const parkingsReducer = (state = INITIAL_STATE, action) =>{
         case "gettingParkings":
             return {...state, isLoading:true, parkings:[]};
         case "getParkings":
-            return {...state, isLoading:false, parkings: action.payload};
+            return {...state, isLoading:false, parkings: action.payload, parking: ['true']};
         case "error":
             return {...state, isLoading:false, parkings:[], parking:[], error: action.payload};
         case "gettingParking":

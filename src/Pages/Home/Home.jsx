@@ -23,7 +23,7 @@ const Home = () => {
       <div className="parkings">
           {isLoading && "Cargando las ofertas"}
           {error && "Error al cargar"}
-          {!parking &&
+          {parking[0] === 'true' &&
             parkings.map((park) => {
               return (
                 <div
