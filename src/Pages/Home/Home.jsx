@@ -1,21 +1,22 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import Navbar from '../../Components/Navbar/Navbar'
+import Navbar1 from '../../Components/Navbar 1/Navbar1';
 import { getParkings } from '../../redux/Parkings/parkings.function';
 import './Home.scss'
-
+import BotonMapa from '../../Components/BotonMapa/BotonMapa';
 const Home = () => {
   const dispatch = useDispatch([]);
   const { parkings, isLoading, error } = useSelector(
     (state) => state.parkings
   );
+
   useEffect(() => {
     dispatch(getParkings('/'));
   }, []);
 
   return (
     <div>
-      <Navbar/>
+      <Navbar1/>
       <div className='body-home'>
       {console.log(parkings)}
       <div className="parkings">
@@ -27,24 +28,36 @@ const Home = () => {
                 <div
                   className={
                     park.size === "caravana"
-                      ? "card-caravana"
+                      ? "card caravana"
                       : park.size === "moto"
-                      ? "card-moto"
+                      ? "card moto"
                       : park.size === "furgoneta"
-                      ? "card-furgoneta"
+                      ? "card furgoneta"
                       : park.size === "camion"
-                      ? "card-camion"
-                      : "card-turismo"
+                      ? "card camion"
+                      : "card turismo"
                   }
                   key={park._id}
                 >
-                  <h2>{park.adress}</h2>
                   <img src={park.image} alt={park.adress} />
+                  <p>{park.adress}</p>
+                  <p className='park-price'>Cuota por noche: {park.price}€</p>
+                  <p className='park-size'>Tamaño apto para {park.size}</p>
+                  <p className={
+                    park.busy === false
+                    ? "park-libre"
+                    : "park-ocupado"
+                  }><p id='park-p'>Disponibilidad Actual:</p>{park.busy === false
+                  ? "DISPONIBLE"
+                  : "OCUPADO"}</p>
+                  
                 </div>
               );
             })}
         </div>
+        <BotonMapa/>
       </div>
+      
     </div>
   )
 }

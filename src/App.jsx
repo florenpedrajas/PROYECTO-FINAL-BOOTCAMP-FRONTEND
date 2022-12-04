@@ -10,15 +10,11 @@ import Login from "./Pages/LogIn/Login";
 import Register from "./Pages/Register";
 function App() {
   
-  const dispatch = useDispatch();
+  
 
   
   
-  useEffect(() => {
-    /* console.log("estoy dentro"); */
-    /* dispatch(getLocation()); */
-  }, []);
-
+  
   
 
   return (

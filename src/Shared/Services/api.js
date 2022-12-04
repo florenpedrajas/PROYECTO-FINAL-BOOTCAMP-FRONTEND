@@ -13,13 +13,13 @@ const APIHeaders = {
 
 
 export const API = axios.create({
-    baseURL: process.env.REACT_APP_BACK_URL,
+    baseURL: 'https://proyecto-final-bootcamp-backend-lsyvmrfzk-florenpedrajas.vercel.app/',
     timeout: 5000,
     headers: APIHeaders
 });
 
 
-const APIHeaders2 = {
+/* const APIHeaders2 = {
     'Accept': 'application/json',
     'Content-Type': 'multipart/form-data',
     'Access-Control-Allow-Origin': '*',
@@ -35,4 +35,4 @@ export const API2 = axios.create({
     baseURL: "https://proyecto-final-bootcamp-backend-lsyvmrfzk-florenpedrajas.vercel.app/",
     timeout: 5000,
     headers: APIHeaders2
-});
+}); */

@@ -7,7 +7,11 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.0",
+<<<<<<< HEAD
     "bcrypt": "^5.1.0",
+=======
+    "dotenv": "^16.0.3",
+>>>>>>> 9404c77b33c4ca2e2692a7b323ade74d2bbc3d26
     "leaflet": "^1.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
