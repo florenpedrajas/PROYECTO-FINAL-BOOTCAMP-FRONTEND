@@ -31,13 +31,25 @@
             text-align: center; 
          }
         .Hamburguermenu{
+            height: 46px;
             width: 50px;
             cursor:pointer
+            
         }
         .imgNav{
             top: 15px;
             height: 40px;
             cursor: pointer;
         }
+        .login{
+            
+            .profile{
+                
+                cursor: pointer;
+                border-radius: 20px;
+                width: 50px;
+            }
+        }
+        
     } 
 }
