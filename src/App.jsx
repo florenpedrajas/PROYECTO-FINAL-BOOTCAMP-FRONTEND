@@ -6,7 +6,8 @@ import './App.scss';
 import Home from "./Pages/Home/Home";
 import FormRent from "./Pages/FormRent";
 import Map from "./Components/map/map";
-import FormLogIn from "./Pages/LogIn/FormLogIn";
+import Login from "./Pages/LogIn/Login";
+import Register from "./Pages/Register";
 function App() {
   
   const dispatch = useDispatch();
@@ -25,8 +26,11 @@ function App() {
       <Routes>
         <Route path=''  element={<Home/>}/>
         <Route path='/map'  element={<Map/>}/>
-        <Route path='/users/login' element={<FormLogIn/>}/>
+        <Route path='/users/login' element={<Login/>}/>
         <Route path='/users/createbooking' element={<FormRent/>}/>
+        <Route path="login" element={<Login/>}/>
+        <Route path="/users/register" element={<Register/>}/>
+
       </Routes>
     </div>
   );
