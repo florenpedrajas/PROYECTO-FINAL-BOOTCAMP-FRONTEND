@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { newUser } from "../../redux/auth/auth.funtion";
+import {loginUser} from "../../redux/auth/auth.funtion"
 import { API } from "../../Shared/Services/api";
 
 
@@ -12,27 +12,18 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const userLogin = (datos) => {
-    const formData = new FormData();
-    formData.append("name", datos.name);
-    formData.append("gender", datos.gender);
-    formData.append("role", datos.role);
-    formData.append("image", datos.weapons);
+  
 
-    dispatch(newUser(formData, navigate));
-  };
+
 
 const login = async(formadata) =>{
-  console.log(formadata);
-  const resultado = await API.post("user/login", formadata);
-  console.log(resultado);
-  localStorage.se("token",resultado.data)
+  dispatch(loginUser(formadata, navigate))
   navigate("");
 }
 
   return (
  
-    <form onSubmit={handleSubmit(userLogin)}>
+    <form onSubmit={handleSubmit(login)}>
     <h4> Inicia Sesión</h4>
     <h4> ¡Bienvenido de nuevo a Valet!</h4>
     <label>
@@ -59,13 +50,13 @@ const login = async(formadata) =>{
         Password
         <input type="password" name="password" {...register('password', {
             required:"El password tiene que existir",
-            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+            // pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
                 
           })}/>
     </label>
     {errors.password ? <p>El password no es correcto</p> : null}
 
-    <button disabled={!isValid}>Enviar</button>
+    <button >Enviar</button>
 
     
 
