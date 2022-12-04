@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar1/>
+      <Navbar1 styles='navbar_input'/>
       <div className='body-home'>
       {console.log(parkings)}
       <div className="parkings">

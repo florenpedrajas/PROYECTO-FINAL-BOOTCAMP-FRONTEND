@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 import Menu from '../Menu/Menu';
 import './Navbar.scss'
 
-const Navbar = () => {
+const Navbar = (styles) => {
     const dispatch = useDispatch();
 /* por que hace falta onClick={() => setMenu(!menu)} */ 
     const navigate= useNavigate();
@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className='divNavbar'>
             <nav>
                 <NavLink to="/" ><img src='./assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className='imgNav'/></NavLink>
-                <label> <input type='text' placeholder='Buscar Estacionamiento...' className='navbar_input' onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>
+                <label> <input type='text' placeholder='Buscar Estacionamiento...' className={styles} onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>
                 <img src='./assets/MenuHamburguesa.png' alt='Menu' className='Hamburguermenu' onClick={() => setMenu(!menu)}/>
             </nav>
             </div>
