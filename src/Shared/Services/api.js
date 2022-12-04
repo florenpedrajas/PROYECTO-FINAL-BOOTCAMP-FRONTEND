@@ -32,7 +32,7 @@ const APIHeaders2 = {
 
 
 export const API2 = axios.create({
-    baseURL: "https://proyecto-final-bootcamp-backend-lsyvmrfzk-florenpedrajas.vercel.app/",
+    baseURL: 'https://proyecto-final-bootcamp-backend-lsyvmrfzk-florenpedrajas.vercel.app/',
     timeout: 5000,
     headers: APIHeaders2
 });

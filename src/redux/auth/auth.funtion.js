@@ -30,7 +30,7 @@ export const newUser = (formdata, navigate) => async (dispatch) => {
 dispatch({ type: "register_user_start" });
 try {
   console.log(formdata);
-const res = await API.post("users/create", formdata);
+const res = await API2.post("users/create", formdata);
 console.log(res);
 dispatch({ type: "register_user_ok" });
 navigate("/users/login");
