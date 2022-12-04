@@ -15,18 +15,22 @@
             input{
             height: 20px;
         }
-        }
-        .navbar_input{
+            .navbar_input{
             width: 50vw;
             
             padding: 10px;
             border:1px solid  rgb(231, 228, 228);
             border-radius: 25px;
         }
-        .navbar_input:hover{
+            .navbar_input:hover{
             border: 1.5px solid black ;
             
         }
+            .navbar_input--hidden{
+                display: none;
+            }
+        }
+        
         ::placeholder {
             text-align: center; 
          }

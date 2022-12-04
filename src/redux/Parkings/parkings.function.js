@@ -12,8 +12,8 @@ export const getParkings = () => async(dispatch) =>{
 export const filterParkings = (event, parkings) => async(dispatch) =>{
     dispatch({type: 'gettingParkings'})
     try {
+        console.log(event.target.value)
         const inputValue =  event.target.value.toLowerCase()
-        console.log(inputValue);
         const filterGarajes = parkings.filter((parking) => {
         const matchName = parking.adress.toLowerCase().includes(inputValue)
             

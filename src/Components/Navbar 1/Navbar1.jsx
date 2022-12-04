@@ -6,9 +6,8 @@ import { NavLink } from 'react-router-dom'
 import Menu from '../Menu/Menu';
 import './Navbar.scss'
 
-const Navbar = (styles) => {
+const Navbar = ({styles}) => {
     const dispatch = useDispatch();
-/* por que hace falta onClick={() => setMenu(!menu)} */ 
     const navigate= useNavigate();
     const [menu, setMenu]= useState(false)
 
@@ -25,7 +24,7 @@ const Navbar = (styles) => {
                 <label> <input type='text' placeholder='Buscar Estacionamiento...' className={styles} onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>
                 <div className='login'  onClick={() => setMenu(!menu)} >
                 <img src='./assets/MenuHamburguesa.png' alt='Menu' className='Hamburguermenu'/>
-                <img className='profile' src="https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg" alt='Perfil Photo'></img>
+                <img className='profile' src="https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg" alt='Profile'></img>
                 </div>
             </nav>
             </div>

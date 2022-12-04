@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import Navbar1 from '../../Components/Navbar 1/Navbar1';
+import Navbar from '../../Components/Navbar 1/Navbar1';
 import { getParkings } from '../../redux/Parkings/parkings.function';
 import './Home.scss'
 import BotonMapa from '../../Components/BotonMapa/BotonMapa';
@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar1 styles='navbar_input'/>
+      <Navbar styles='navbar_input'/>
       <div className='body-home'>
       {console.log(parkings)}
       <div className="parkings">

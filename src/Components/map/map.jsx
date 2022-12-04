@@ -3,8 +3,7 @@ import "leaflet/dist/leaflet.css"
 import IconLocation from './IconLocation'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import Navbar from '../Navbar2/Navbar2'
-import '../Navbar2/Navbar.scss';
+import Navbar from '../Navbar 1/Navbar1'
 import { MapContainer, TileLayer, useMap, Marker, Popup  } from 'react-leaflet'
 
 
@@ -45,7 +44,7 @@ const garages={
 
     return (
     <>
-    <Navbar/>
+    <Navbar styles='navbar_input--hidden'/>
     {state.longitude && state.latitude &&(
       <div>
     
