@@ -23,7 +23,10 @@ const Navbar = (styles) => {
             <nav>
                 <NavLink to="/" ><img src='./assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className='imgNav'/></NavLink>
                 <label> <input type='text' placeholder='Buscar Estacionamiento...' className={styles} onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>
-                <img src='./assets/MenuHamburguesa.png' alt='Menu' className='Hamburguermenu' onClick={() => setMenu(!menu)}/>
+                <div className='login'  onClick={() => setMenu(!menu)} >
+                <img src='./assets/MenuHamburguesa.png' alt='Menu' className='Hamburguermenu'/>
+                <img className='profile' src="https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg" alt='Perfil Photo'></img>
+                </div>
             </nav>
             </div>
             {menu === true &&
