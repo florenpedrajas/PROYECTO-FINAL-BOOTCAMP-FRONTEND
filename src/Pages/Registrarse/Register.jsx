@@ -2,9 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { API } from "../Shared/Services/api";
-import { newUser } from "../redux/auth/auth.funtion";
-
+import { API } from "../../Shared/Services/api";
+import { newUser } from "../../redux/auth/auth.funtion";
+import Navbar from '../../Components/Navbar 1/Navbar1'
+import "./Register.scss"
 const Register = () => {
   const { register, handleSubmit, formState: {errors, isValid}} = useForm();
   let navigate = useNavigate();
@@ -25,7 +26,9 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(userRegister)}>
+    <div>
+    <Navbar styles='navbar_input--hidden'/>
+    <form className="formRegister" onSubmit={handleSubmit(userRegister)}>
     <h4> Regístrate</h4>
     <h4> ¡Te damos la Bienvenida a Valet!</h4>
       <label>
@@ -69,9 +72,10 @@ const Register = () => {
       </label>
       {errors.password ? <p>El password no es correcto</p> : null}
 
-      <label>
-        Nombre
-        <input
+     
+      <div class="input-group" >
+        <input 
+          class="effect-5"
           type="text"
           name="firstName"
           {...register("firstName", {
@@ -79,7 +83,8 @@ const Register = () => {
             
           })}
         />
-      </label>
+       <label> Nombre</label>
+       </div>
       <label>
         Apellidos
         <input
@@ -120,6 +125,7 @@ const Register = () => {
 
       <button disabled={!isValid}>Enviar</button>
     </form>
+    </div>
   );
 };
 
