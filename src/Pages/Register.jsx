@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { API } from "../../src/Shared/Services/api";
+import { API } from "../Shared/Services/api";
 import { newUser } from "../redux/auth/auth.funtion";
 
 const Register = () => {

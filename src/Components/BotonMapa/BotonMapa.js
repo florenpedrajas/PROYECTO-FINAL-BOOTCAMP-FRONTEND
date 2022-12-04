@@ -4,7 +4,7 @@ import "./BotonMapa.scss"
 const BotonMapa = () => {
     const navigate= useNavigate();
   return (
-    <button onClick={() => navigate('/map')} >Mostrar Mapa</button>
+    <button className='buttonMapa'  onClick={() => navigate('/map')} >Mostrar Mapa</button>
   )
 }
 
