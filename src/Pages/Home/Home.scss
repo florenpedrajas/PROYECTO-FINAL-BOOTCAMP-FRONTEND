@@ -1,5 +1,10 @@
-
+@font-face{
+    font-family: circular;
+    src: url("../../../public/assets/AvenirLTStd-Black.otf")
+}
 div{
+    font-family: circular;
+
     .body-home{
         padding-top: 80px;
         background-color: white;
