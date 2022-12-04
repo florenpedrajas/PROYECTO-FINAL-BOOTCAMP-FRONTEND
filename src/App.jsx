@@ -4,10 +4,10 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import {getLocation} from "./redux/garaje/garaje.functions"
 import './App.scss';
 import Home from "./Pages/Home/Home";
-import FormRent from "./Pages/FormRent";
+import FormRent from "./Pages/FormRent/FormRent";
 import Map from "./Components/map/map";
 import Login from "./Pages/LogIn/Login";
-import Register from "./Pages/Register";
+import Register from "./Pages/Registrarse/Register";
 function App() {
   
   

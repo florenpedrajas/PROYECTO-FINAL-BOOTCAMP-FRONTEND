@@ -16,7 +16,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div  >
       <Navbar styles='navbar_input'/>
       <div className='body-home'>
       {console.log(parkings)}
@@ -41,7 +41,7 @@ const Home = () => {
                   key={park._id}
                 >
                   <img src={park.image} alt={park.adress} />
-                  <p>{park.adress}</p>
+                  <p className='park-adress' >{park.adress}</p>
                   <p className='park-price'>Cuota por noche: {park.price}€</p>
                   <p className='park-size'>Tamaño apto para {park.size}</p>
                   <p className={

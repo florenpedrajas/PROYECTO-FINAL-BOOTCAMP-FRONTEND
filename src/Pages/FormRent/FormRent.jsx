@@ -2,7 +2,9 @@ import React from 'react'
 import {useForm} from "react-hook-form"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { postNewParking } from '../redux/newParking/newParking.functions';
+import Navbar from '../../Components/Navbar 1/Navbar1'
+import { postNewParking } from '../../redux/newParking/newParking.functions';
+import "./FormRent.scss"
 const FormRent = () => {
 
   const { register, handleSubmit } = useForm();
@@ -25,7 +27,10 @@ const FormRent = () => {
 
 
   return (
-    <form onSubmit={handleSubmit(envioFormulario)}>
+    
+    <div >
+    <Navbar styles='navbar_input--hidden'/>
+    <form className='formRent' onSubmit={handleSubmit(envioFormulario)}>
     <label>
       Adress
       <input type="text" {...register("adress", { required: true })} />
@@ -47,6 +52,8 @@ const FormRent = () => {
     
     <button>Enviar</button>
   </form>
+  </div>
+  
   )
 }
 
