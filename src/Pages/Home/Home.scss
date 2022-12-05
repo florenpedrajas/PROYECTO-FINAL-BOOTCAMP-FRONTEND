@@ -9,7 +9,6 @@ div{
     }
     .body-home{
         padding-top: 80px;
-        background-color: white;
         .parkings{
             
             display: flex;
@@ -123,3 +122,8 @@ div{
     height: 3vw;
 
 }
+
+.darkMode {
+    background-color: #1a1a1a;
+    color: white;
+  }

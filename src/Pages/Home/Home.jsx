@@ -15,6 +15,7 @@ const Home = () => {
   const { parkings, isLoading, error, parking } = useSelector(
     (state) => state.parkings
   );
+  
 
   useEffect(() => {
     dispatch(getParkings('/'));
@@ -23,13 +24,21 @@ const Home = () => {
   const mostrarAlerta = () => {
     Swal.fire("Gracias por tu reserva!")
   }
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleMode = () => {
+    setDarkMode(!darkMode);
+  };
 
 
 
 
   return (
-    <div  >
-      <Navbar styles='navbar_input'/>
+    
+    
+    <div className={darkMode ? "darkMode" : ""}>
+    <button onClick={toggleMode}>Toggle Mode</button>
+    <Navbar styles="navbar_input" darkMode={darkMode} />
       <div className='body-home'>
       {console.log(parkings)}
     

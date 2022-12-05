@@ -8,7 +8,6 @@
         justify-content: space-around;
         align-items: center;
         height: 80px;
-        background-color: white;
         border-bottom: 1.4px solid rgb(231, 228, 228);
         label{
             font-weight: 600;
@@ -45,6 +44,14 @@
             height: 40px;
             cursor: pointer;
         }
+
+        .darkImgNav {
+            top: 15px;
+            height: 40px;
+            cursor: pointer;
+            -webkit-filter: invert(100%);
+            filter: invert(100%);
+          }
         .login{
             
             .profile{
