@@ -14,7 +14,7 @@ const UserProfile = () => {
     const { parkings } = useSelector(
         (state) => state.parkings
     );
-
+    console.log(user)
     useEffect(() => {
         dispatch(getUsersParkings(user.parking));
     }, []);
@@ -27,6 +27,7 @@ const UserProfile = () => {
             {isLoading && "Cargando las ofertas"}
             {error && "Error al cargar"}
             {user && <>
+            <p>Perfil de {user.firstName[0].toUpperCase()}{user.firstName.slice(1)}</p>
             <div className='UserProfile__Container'>
                 <div className='Info__Container'>
                     <div className='PP__Container'>
@@ -46,7 +47,13 @@ const UserProfile = () => {
                     <div className='Parkings__Container'>
                         {parkings.map((park) => {
                         return (
-                            <p>{park.adress}</p>
+                            <>
+                            <h2>{park.adress}</h2>
+                            <div>
+                                <p>{park.busy}</p>
+                                <p>{park.size}</p>
+                            </div> 
+                            </>
                         )
                         })}
                     </div>

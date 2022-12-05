@@ -11,7 +11,7 @@ export const postNewParking = (datos,navigate) => async (dispatch) => {
       dispatch({ type: "postParking" });
       dispatch(userEdit(res.data._id))
       dispatch(parkingEdit(user, res.data._id))
-      /*navigate("/");*/
+      navigate("/");
     } catch (error) {
       dispatch({ type: "postingError", payload: error.message });
     }

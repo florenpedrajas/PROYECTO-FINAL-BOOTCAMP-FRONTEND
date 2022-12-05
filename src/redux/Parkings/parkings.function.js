@@ -19,14 +19,15 @@ export const getUsersParkings = (user) => async (dispatch) => {
             for (let i = 0; i < ids.length; i++) {
                     if(ids[i] !== null){
                         const parking = await API.get("parkings/" + ids[i]);
-                        console.log(parking)
                         parkings.push(parking.data);
+                    } else {
+                        console.log('vacio')
                     }
             }
+            console.log(parkings)
         } catch (error) {
             dispatch({ type: "error", payload: error.message });
         }
-        console.log(parkings)
         dispatch({ type: "getParkings", payload: parkings });
     } catch (error) {
         dispatch({ type: "error", payload: error.message });

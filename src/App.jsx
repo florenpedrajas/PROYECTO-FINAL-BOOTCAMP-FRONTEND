@@ -11,7 +11,7 @@ import { checkSession } from "./redux/auth/auth.funtion";
 import { useDispatch } from "react-redux";
 function App() {
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch([]);
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
   useEffect(() => {
