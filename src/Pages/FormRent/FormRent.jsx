@@ -1,0 +1,61 @@
+import React from 'react'
+import {useForm} from "react-hook-form"
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import Navbar from '../../Components/Navbar 1/Navbar1'
+import { postNewParking } from '../../redux/newParking/newParking.functions';
+import "./FormRent.scss"
+const FormRent = () => {
+
+  const { register, handleSubmit } = useForm();
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const envioFormulario = (datosFormulario) => {
+
+    const formData = new FormData();
+    formData.append("adress", datosFormulario.adress);
+    formData.append("price", datosFormulario.price);
+    
+    formData.append("imagen", datosFormulario.imagen[0]);
+    dispatch(postNewParking(formData,navigate))
+    console.log(datosFormulario);
+  };
+
+
+ 
+
+
+  return (
+    
+    <div >
+    <Navbar styles='navbar_input--hidden'/>
+    <form className='formRent' onSubmit={handleSubmit(envioFormulario)}>
+    <label>
+      Adress
+      <input type="text" {...register("adress", { required: true })} />
+    </label>
+    <label>
+      Price
+      <input
+        type="text"
+        {...register("price", {
+          required: true,
+         
+        })}
+      />
+    </label>
+    <label>
+      Image
+      <input type="file" {...register("imagen", { required: false })} />
+    </label>
+    
+    <button>Enviar</button>
+  </form>
+  </div>
+  
+  )
+}
+
+export default FormRent;
+

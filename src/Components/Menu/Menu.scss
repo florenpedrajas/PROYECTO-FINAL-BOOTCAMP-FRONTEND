@@ -1,0 +1,26 @@
+.container-Dropdown{
+    z-index: 1000;
+    border: 1px solid rgb(231, 228, 228);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: fixed;
+    background-color: white;
+    top: 12%;
+    right: 5%;
+    .Dropdown{
+        
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        list-style: none;
+        position: relative;
+        a{
+            text-decoration: none;
+            list-style-type: none;
+            color: black;
+        }
+    }
+}
+    
