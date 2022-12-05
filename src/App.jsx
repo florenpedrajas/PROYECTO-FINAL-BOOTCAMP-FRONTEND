@@ -8,6 +8,7 @@ import FormRent from "./Pages/FormRent/FormRent";
 import Map from "./Components/map/map";
 import Login from "./Pages/LogIn/Login";
 import Register from "./Pages/Registrarse/Register";
+import UserProfile from "./Pages/UseProfile/UserProfile";
 function App() {
   
   
@@ -26,7 +27,7 @@ function App() {
         <Route path='/users/createbooking' element={<FormRent/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="/users/register" element={<Register/>}/>
-
+        <Route path="/user/userProfile" element={<UserProfile/>}/>
       </Routes>
     </div>
   );

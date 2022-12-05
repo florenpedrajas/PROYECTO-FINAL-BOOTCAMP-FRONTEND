@@ -6,8 +6,10 @@ export const loginUser = (formdata, navigate) => async (dispatch) => {
 dispatch({ type: "login_user_start" });
 try {
 const result = await API.post("/users/login", formdata);
+console.log(result.data)
 dispatch({ type: "login_user_ok", payload: result.data });
 localStorage.setItem("token", result.data.token);
+localStorage.setItem("id", result.data.userDB._id );
 navigate("/");
 } catch (error) {
 dispatch({ type: "login_user_error", payload: error.message });
@@ -26,12 +28,36 @@ dispatch({ type: "logout_user_error", payload: error.message });
 }
 };
 
+export const getUser = (navigate) => async (dispatch) => {
+  dispatch({ type: "getting_users" });
+  try {
+  await API.get("/users");
+  dispatch({ type: "get_users" });
+  } catch (error) {
+  dispatch({ type: "get_users_error", payload: error.message });
+  }
+  };
+  
+export const userEdit = (garage) => async (dispatch) => {
+  dispatch({ type: "editing_users" });
+  try {
+      console.log(garage)
+      const mod = {
+        parking: garage.toString()
+      };
+      console.log(mod)
+      await API.put("/users/edit/" + localStorage.getItem('id'), mod);
+      dispatch({ type: "edit_users"});
+  } catch (error) {
+      dispatch({ type: "edit_users_error", payload: error.message });
+  }
+  };
+
+
 export const newUser = (formdata, navigate) => async (dispatch) => {
 dispatch({ type: "register_user_start" });
 try {
-  console.log(formdata);
 const res = await API2.post("users/create", formdata);
-console.log(res);
 dispatch({ type: "register_user_ok" });
 navigate("/users/login");
 } catch (error) {

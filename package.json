@@ -3,26 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@mui/material": "^5.10.16",
-=======
->>>>>>> a21e12145d4b5f6dd8291d256dbc10dd9dfce2d0
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.0",
     "bcrypt": "^5.1.0",
-<<<<<<< HEAD
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "leaflet": "^1.9.3",
     "react": "^18.2.0",
     "react-date-range": "^1.4.0",
-=======
-    "dotenv": "^16.0.3",
-    "leaflet": "^1.9.3",
-    "react": "^18.2.0",
->>>>>>> a21e12145d4b5f6dd8291d256dbc10dd9dfce2d0
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.40.0",
     "react-icons": "^4.7.1",

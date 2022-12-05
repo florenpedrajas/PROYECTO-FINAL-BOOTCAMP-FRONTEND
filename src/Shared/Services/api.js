@@ -13,7 +13,7 @@ const APIHeaders = {
 
 
 export const API = axios.create({
-    baseURL: 'https://proyecto-final-bootcamp-backend-lsyvmrfzk-florenpedrajas.vercel.app/',
+    baseURL: 'http://localhost:5000/',
     timeout: 5000,
     headers: APIHeaders
 });
@@ -32,7 +32,12 @@ const APIHeaders2 = {
 
 
 export const API2 = axios.create({
-    baseURL: 'https://proyecto-final-bootcamp-backend-lsyvmrfzk-florenpedrajas.vercel.app/',
+    baseURL: 'http://localhost:5000/',
     timeout: 5000,
     headers: APIHeaders2
 });
+
+
+
+
+/* 'https://proyecto-final-bootcamp-backend-lsyvmrfzk-florenpedrajas.vercel.app/', */
