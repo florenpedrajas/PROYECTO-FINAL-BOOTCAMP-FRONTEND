@@ -53,6 +53,22 @@ export const userEdit = (garage) => async (dispatch) => {
   }
   };
 
+  export const userEdit2 = (reserva) => async (dispatch) => {
+    dispatch({ type: "editing_users" });
+    try {
+        console.log(reserva)
+        const mod = {
+          bookings: reserva.toString()
+        };
+        console.log(mod)
+        await API.put("/users/edit/" + localStorage.getItem('id'), mod);
+        dispatch({ type: "edit_user"});
+    } catch (error) {
+        dispatch({ type: "edit_users_error", payload: error.message });
+    }
+    };
+  
+
 
 export const newUser = (formdata, navigate) => async (dispatch) => {
 dispatch({ type: "register_user_start" });

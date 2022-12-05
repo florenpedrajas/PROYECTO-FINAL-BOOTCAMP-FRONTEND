@@ -7,6 +7,7 @@ import BotonMapa from '../../Components/BotonMapa/BotonMapa';
 import Footer from '../../Components/Footer/Footer';
 import DatePicker from '../../Components/DatePiker/DatePicker';
 import { useState } from 'react';
+import { userEdit2 } from '../../redux/auth/auth.funtion';
 import Swal from "sweetalert2"
 
 const Home = () => {
@@ -16,6 +17,8 @@ const Home = () => {
     (state) => state.parkings
   );
   
+  const {user, token} = useSelector((state) => state.auth)
+
 
   useEffect(() => {
     dispatch(getParkings('/'));
@@ -23,6 +26,7 @@ const Home = () => {
 
   const mostrarAlerta = () => {
     Swal.fire("Gracias por tu reserva!")
+    dispatch(userEdit2())
   }
   const [darkMode, setDarkMode] = useState(false);
 
@@ -92,9 +96,11 @@ const Home = () => {
                   }><p id='park-p'>Disponibilidad Actual:</p>{park.busy === false
                   ? "DISPONIBLE"
                   : "OCUPADO"}</p>
-                  <div className='button' >
-                  <button onClick={() => mostrarAlerta()} >Reserva</button>
+                  { user && <div className='button' >
+                    <button onClick={() => mostrarAlerta()} >Reserva</button>
                   </div>
+                  }
+                  
                 </div>
               );
             })}
@@ -129,9 +135,10 @@ const Home = () => {
                   }><p id='park-p'>Disponibilidad Actual:</p>{park.busy === false
                   ? "DISPONIBLE"
                   : "OCUPADO"}</p>
-                  <div className='button' >
-                  <button onClick={() => mostrarAlerta()} >Reserva</button>
+                  { user && <div className='button' >
+                    <button onClick={() => mostrarAlerta()} >Reserva</button>
                   </div>
+                  }
                   
                 </div>
               );
