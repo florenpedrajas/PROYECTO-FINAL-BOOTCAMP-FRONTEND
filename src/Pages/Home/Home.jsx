@@ -6,9 +6,11 @@ import './Home.scss'
 import BotonMapa from '../../Components/BotonMapa/BotonMapa';
 import Footer from '../../Components/Footer/Footer';
 import DatePicker from '../../Components/DatePiker/DatePicker';
+import { useState } from 'react';
 
 
 const Home = () => {
+  const [showdates, setShowdates] = useState(false)
   const dispatch = useDispatch([]);
   const { parkings, isLoading, error, parking } = useSelector(
     (state) => state.parkings
@@ -23,10 +25,21 @@ const Home = () => {
       <Navbar styles='navbar_input'/>
       <div className='body-home'>
       {console.log(parkings)}
+    
+
+      
 
 
         <div>
-          <DatePicker/>
+          <button className='buttonShow' onClick={() =>setShowdates(!showdates)}>
+        
+            {
+              showdates ? "Cerrar" : "Elige tus dias"
+            }
+          </button>
+          {
+            showdates &&   <DatePicker/>
+        }
         </div>     
       
 
