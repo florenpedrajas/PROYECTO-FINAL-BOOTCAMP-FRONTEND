@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import {getLocation} from "./redux/garaje/garaje.functions"
+import React from "react";
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Home from "./Pages/Home/Home";
 import FormRent from "./Pages/FormRent/FormRent";

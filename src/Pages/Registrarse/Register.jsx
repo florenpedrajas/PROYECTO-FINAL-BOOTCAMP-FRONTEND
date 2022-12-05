@@ -2,7 +2,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { API } from "../../Shared/Services/api";
 import { newUser } from "../../redux/auth/auth.funtion";
 import Navbar from '../../Components/Navbar 1/Navbar1'
 import "./Register.scss"

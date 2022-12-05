@@ -47,7 +47,7 @@ export const userEdit = (garage) => async (dispatch) => {
       };
       console.log(mod)
       await API.put("/users/edit/" + localStorage.getItem('id'), mod);
-      dispatch({ type: "edit_users"});
+      dispatch({ type: "edit_user"});
   } catch (error) {
       dispatch({ type: "edit_users_error", payload: error.message });
   }
@@ -57,7 +57,7 @@ export const userEdit = (garage) => async (dispatch) => {
 export const newUser = (formdata, navigate) => async (dispatch) => {
 dispatch({ type: "register_user_start" });
 try {
-const res = await API2.post("users/create", formdata);
+await API2.post("users/create", formdata);
 dispatch({ type: "register_user_ok" });
 navigate("/users/login");
 } catch (error) {

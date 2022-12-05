@@ -43,12 +43,12 @@ const INITIAL_STATE = {
       case "logout_user_error":
         return { ...state, isLoading: false, error: action.payload };
   
-    //   case "checkSession_start":
-    //     return {...state, isLoading: true};
-    //   case "checkSession_ok":
-    //     return {...state, isLoading: false, user: action.payload.user, token: action.payload.token, error: false};
-    //   case "checkSession_error":
-    //     return {...INITIAL_STATE};
+    case "checkSession_start":
+      return {...state, isLoading: true};
+    case "checkSession_ok":
+      return {...state, isLoading: false, user: action.payload.user, token: action.payload.token, error: false};
+    case "checkSession_error":
+      return {...INITIAL_STATE};
   
       default:
         return state;
