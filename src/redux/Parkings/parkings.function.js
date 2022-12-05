@@ -10,6 +10,29 @@ export const getParkings = () => async(dispatch) =>{
     }
 }
 
+export const getUsersParkings = (user) => async (dispatch) => {
+    dispatch({ type: "gettingParkings" });
+    try {
+        const ids = user;
+        const parkings = [];
+        try {
+            for (let i = 0; i < ids.length; i++) {
+                    if(ids[i] !== null){
+                        const parking = await API.get("parkings/" + ids[i]);
+                        console.log(parking)
+                        parkings.push(parking.data);
+                    }
+            }
+        } catch (error) {
+            dispatch({ type: "error", payload: error.message });
+        }
+        console.log(parkings)
+        dispatch({ type: "getParkings", payload: parkings });
+    } catch (error) {
+        dispatch({ type: "error", payload: error.message });
+    }
+};
+
 export const parkingEdit = (user, id) => async (dispatch) => {
     dispatch({ type: "editingParking" });
     try {

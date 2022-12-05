@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.scss';
 import Home from "./Pages/Home/Home";
 import FormRent from "./Pages/FormRent/FormRent";
@@ -7,14 +7,16 @@ import Map from "./Components/map/map";
 import Login from "./Pages/LogIn/Login";
 import Register from "./Pages/Registrarse/Register";
 import UserProfile from "./Pages/UseProfile/UserProfile";
+import { checkSession } from "./redux/auth/auth.funtion";
+import { useDispatch } from "react-redux";
 function App() {
-  
-  
 
-  
-  
-  
-  
+  const dispatch = useDispatch();
+  const token = localStorage.getItem('token');
+  const navigate = useNavigate();
+  useEffect(() => {
+    token && dispatch(checkSession(token, navigate))
+  }, []);
 
   return (
     <div className="App">

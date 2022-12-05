@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../../Components/Navbar 1/Navbar1'
 import { getUser } from '../../redux/auth/auth.funtion';
+import { getUsersParkings } from '../../redux/Parkings/parkings.function';
 import './UserProfile.scss'
 
 const UserProfile = () => {
@@ -9,6 +10,16 @@ const UserProfile = () => {
     const { user, isLoading, error } = useSelector(
         (state) => state.auth
     );
+    
+    const { parkings } = useSelector(
+        (state) => state.parkings
+    );
+
+    useEffect(() => {
+        dispatch(getUsersParkings(user.parking));
+    }, []);
+
+
 
     return (
         <>
@@ -30,13 +41,14 @@ const UserProfile = () => {
                 </div>
                 <div className='Bookings__Parkings__Container'>
                     <div className='Bookings__Container'>
-                        {user.map((park) => {
-                        return (
-                            <p>{park.adress}</p>
-                    )})}
+                        
                     </div>
                     <div className='Parkings__Container'>
-
+                        {parkings.map((park) => {
+                        return (
+                            <p>{park.adress}</p>
+                        )
+                        })}
                     </div>
                 </div>
             </div>
