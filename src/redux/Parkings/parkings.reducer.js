@@ -18,6 +18,14 @@ const parkingsReducer = (state = INITIAL_STATE, action) =>{
         case "getParking": 
             return {...state, isLoading:false, parking: action.payload};
 
+        case "editingParking":
+            return {...state, isLoading: true}
+        case "parkingEdited":
+            return {...state, isLoading: false}
+        case "errorEditingParking":
+            return {...state, isLoading: false, error: action.payload}
+
+
         default:
             return state;
     }

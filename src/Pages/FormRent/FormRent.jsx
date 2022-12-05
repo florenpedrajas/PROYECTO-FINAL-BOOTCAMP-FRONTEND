@@ -16,8 +16,9 @@ const FormRent = () => {
     const formData = new FormData();
     formData.append("adress", datosFormulario.adress);
     formData.append("price", datosFormulario.price);
-    
-    formData.append("imagen", datosFormulario.imagen[0]);
+    formData.append("image", datosFormulario.image[0]);
+    formData.append("latitude", datosFormulario.latitude);
+    formData.append("longitude", datosFormulario.longitude);
     dispatch(postNewParking(formData,navigate))
     console.log(datosFormulario);
   };
@@ -41,17 +42,37 @@ const FormRent = () => {
         type="text"
         {...register("price", {
           required: true,
-         
+        
         })}
       />
     </label>
     <label>
       Image
-      <input type="file" {...register("imagen", { required: false })} />
+      <input type="file" {...register("image", { required: false })} />
     </label>
-    
+    <label>
+      Longitude
+      <input
+        type="text"
+        {...register("longitude", {
+          required: true,
+        
+        })}
+      />
+    </label>
+    <label>
+      Latitude
+      <input
+        type="text"
+        {...register("latitude", {
+          required: true,
+        
+        })}
+      />
+    </label>
     <button>Enviar</button>
   </form>
+  
   </div>
   
   )

@@ -9,6 +9,21 @@ export const getParkings = () => async(dispatch) =>{
         dispatch({type: 'error', payload: error.message});
     }
 }
+
+export const parkingEdit = (user, id) => async (dispatch) => {
+    dispatch({ type: "editingParking" });
+    try {
+        const mod = {
+            users: user.toString()
+        };
+        console.log(mod)
+        await API.put("/parkings/edit/" + id, mod);
+        dispatch({ type: "parkingEdited"});
+    } catch (error) {
+        dispatch({ type: "errorEditingParking", payload: error.message });
+    }
+    };
+
 export const filterParkings = (event, parkings) => async(dispatch) =>{
     dispatch({type: 'gettingParking'})
     try {

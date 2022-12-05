@@ -1,4 +1,5 @@
 const INITIAL_STATE = {
+    users:[],
     user: null,
     token: null,
     error: false,
@@ -10,7 +11,7 @@ const INITIAL_STATE = {
       case "login_user_start":
         return { ...state, isLoading: true };
       case "login_user_ok":
-        return {...state, isLoading: false, user: action.payload.user, token: action.payload.token, error: false,};
+        return {...state, isLoading: false, user: action.payload.userDB, token: action.payload.token, error: false,};
       case "login_user_error":
         return {...state, isLoading: false, user: null, token: null, error: action.payload, };
   
@@ -20,6 +21,20 @@ const INITIAL_STATE = {
         return { ...state, isLoading: false, error: false };
       case "register_user_error":
         return { ...state, isLoading: false, error: action.payload };
+
+      case "getting_users":
+        return { ...state, isLoading: true};
+      case "get_users":
+        return { ...state, isLoading: false, error: false, users: action.payload};
+      case "get_users_error":
+        return { ...state, isLoading: false, users: [], error: action.payload};
+
+      case "editing_user":
+        return {...state, isLoading: true};
+      case "edit_user":
+        return {...state, isLoading: false};
+      case"edit_user_error":
+        return {...state, isLoading:false, error: action.payload};
   
       case "logout_user_start":
         return { ...state, isLoading: true };

@@ -21,7 +21,6 @@ const Register = () => {
     formData.append("lastName", datos.lastName);
     formData.append("birthdate", datos.birthdate);
     formData.append("photo", datos.photo[0]);
-    console.log(datos);
     dispatch(newUser(formData, navigate));
   };
 
