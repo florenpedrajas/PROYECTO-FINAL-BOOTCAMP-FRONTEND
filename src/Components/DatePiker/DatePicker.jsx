@@ -18,10 +18,13 @@ const  DatePicker = () => {
         <DateRangePicker  ranges={[selectionRange]}
         onChange = { handleSelect }
         />
+        
         <div className='inputSection'>
+       
 
           <button className='buttonDate'> Busca tu cochera</button>
         </div>
+      
     </div>
   )
 }
