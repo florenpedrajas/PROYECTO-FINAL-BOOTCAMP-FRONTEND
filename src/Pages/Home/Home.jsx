@@ -7,6 +7,7 @@ import BotonMapa from '../../Components/BotonMapa/BotonMapa';
 import Footer from '../../Components/Footer/Footer';
 import DatePicker from '../../Components/DatePiker/DatePicker';
 
+
 const Home = () => {
   const dispatch = useDispatch([]);
   const { parkings, isLoading, error, parking } = useSelector(
@@ -23,13 +24,12 @@ const Home = () => {
       <div className='body-home'>
       {console.log(parkings)}
 
+
         <div>
           <DatePicker/>
-        </div>
-
-
+        </div>     
       
-      
+
       <div className="parkings">
           {isLoading && "Cargando las ofertas"}
           {error && "Error al cargar"}
