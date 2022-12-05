@@ -7,7 +7,7 @@ import BotonMapa from '../../Components/BotonMapa/BotonMapa';
 import Footer from '../../Components/Footer/Footer';
 import DatePicker from '../../Components/DatePiker/DatePicker';
 import { useState } from 'react';
-
+import Swal from "sweetalert2"
 
 const Home = () => {
   const [showdates, setShowdates] = useState(false)
@@ -19,6 +19,13 @@ const Home = () => {
   useEffect(() => {
     dispatch(getParkings('/'));
   }, []);
+
+  const mostrarAlerta = () => {
+    Swal.fire("Gracias por tu reserva!")
+  }
+
+
+
 
   return (
     <div  >
@@ -51,6 +58,7 @@ const Home = () => {
               return (
                 <div
                   className={
+                    
                     park.size === "caravana"
                       ? "card caravana"
                       : park.size === "moto"
@@ -63,6 +71,7 @@ const Home = () => {
                   }
                   key={park._id}
                 >
+                  
                   <img src={park.image} alt={park.adress} />
                   <p className='park-adress' >{park.adress}</p>
                   <p className='park-price'>Cuota por noche: {park.price}€</p>
@@ -74,7 +83,9 @@ const Home = () => {
                   }><p id='park-p'>Disponibilidad Actual:</p>{park.busy === false
                   ? "DISPONIBLE"
                   : "OCUPADO"}</p>
-                  
+                  <div className='button' >
+                  <button onClick={() => mostrarAlerta()} >Reserva</button>
+                  </div>
                 </div>
               );
             })}
@@ -82,6 +93,7 @@ const Home = () => {
             parking.map((park) => {
               return (
                 <div
+
                   className={
                     park.size === "caravana"
                       ? "card caravana"
@@ -95,7 +107,9 @@ const Home = () => {
                   }
                   key={park._id}
                 >
+                  
                   <img src={park.image} alt={park.adress} />
+                  
                   <p>{park.adress}</p>
                   <p className='park-price'>Cuota por noche: {park.price}€</p>
                   <p className='park-size'>Tamaño apto para {park.size}</p>
@@ -106,10 +120,14 @@ const Home = () => {
                   }><p id='park-p'>Disponibilidad Actual:</p>{park.busy === false
                   ? "DISPONIBLE"
                   : "OCUPADO"}</p>
+                  <div className='button' >
+                  <button onClick={() => mostrarAlerta()} >Reserva</button>
+                  </div>
                   
                 </div>
               );
             })}
+            
         </div>
         <BotonMapa/>
         <Footer/>
