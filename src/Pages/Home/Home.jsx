@@ -22,6 +22,7 @@ const Home = () => {
   
   const {user, token} = useSelector((state) => state.auth)
 
+  const {bookings} = useSelector((state) => state.booking)
 
   useEffect(() => {
     dispatch(getParkings('/'));
@@ -30,7 +31,7 @@ const Home = () => {
   const postBooking = (park) => {
     console.log(park);
     Swal.fire("Gracias por tu reserva!")
-    dispatch(postNewBooking(park, navigate))
+    dispatch(postNewBooking(park, bookings))
   }
   const [darkMode, setDarkMode] = useState(false);
 
@@ -46,30 +47,15 @@ const Home = () => {
     
     <div className={darkMode ? "darkMode" : ""}>
     <button onClick={toggleMode}>Toggle Mode</button>
-    <Navbar styles="navbar_input" darkMode={darkMode} />
+    <Navbar styles="navbar_input dark" darkMode={darkMode} />
       <div className='body-home'>
       {console.log(parkings)}
-    
-
-      
-
-
-        <div>
-          <button className='buttonShow' onClick={() =>setShowdates(!showdates)}>
-        
-            {
-              showdates ? "Cerrar" : "Elige tus dias"
-            }
-          </button>
-          {
-            showdates &&   <DatePicker/>
-        }
-        </div>     
+     
       
 
       <div className="parkings">
           {isLoading && "Cargando las ofertas"}
-          {error && "Error al cargar"}
+          {/* {error && "Error al cargar"} */}
           {parking[0] === 'true' &&
             parkings.map((park) => {
               return (
@@ -140,7 +126,7 @@ const Home = () => {
                   ? "DISPONIBLE"
                   : "OCUPADO"}</p>
                   { user && <div className='button' >
-                    <button onClick={() => postBooking(park)} >Reserva</button>
+                    <button onClick={() => postBooking(park, bookings)} >Reserva</button>
                   </div>
                   }
                   
@@ -150,7 +136,7 @@ const Home = () => {
             
         </div>
         <BotonMapa/>
-        <Footer/>
+        <Footer  darkMode={darkMode}/>
       </div>
       
     </div>

@@ -2,11 +2,11 @@ import React from 'react'
 import "./Footer.scss"
 import {FaFacebook, FaInstagram, FaGithub } from 'react-icons/fa'
 import { IconContext } from "react-icons";
-const Footer = () => {
+const Footer = (darkMode) => {
   return (
 
     <IconContext.Provider value={{ color: "black", className: "global-class-name" }} >
-    <footer>
+    <footer className={darkMode ? "darkFooter" : ""}>
     <ul>
       <li>© 2022 ValetApp, Inc.</li>
       

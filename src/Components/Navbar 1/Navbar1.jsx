@@ -18,8 +18,8 @@ const Navbar = ({ styles, darkMode }) => {
     return (
         <>
 
-            <div className='divNavbar'>
-            <nav>
+            <div className="divNavbar">
+            <nav className={darkMode ? "darkNavbar" : ""}>
                 <NavLink to="/" ><img src='../assets/valet_app_logo.png' alt='Logo Valet' onClick={() => navigate('')} className={darkMode ? "darkImgNav" : "imgNav"}
 /></NavLink>
                 <label> <input type='text' placeholder='Buscar Estacionamiento...' className={styles} onChange={(e) => dispatch(filterParkings(e, parkings))}></input></label>

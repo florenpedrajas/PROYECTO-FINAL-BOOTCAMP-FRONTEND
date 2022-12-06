@@ -12,7 +12,7 @@ const UserProfile = () => {
     );
     
     
-    console.log(user)
+    console.log("soy user",user)
     useEffect(() => {
         console.log(parkings);
         dispatch(getUsersParkings(user.parking));
@@ -21,10 +21,13 @@ const UserProfile = () => {
     const { parkings } = useSelector(
         (state) => state.parkings
     );
+    console.log("soy parkings");
 
     const { bookings } = useSelector(
-        (state) => state.bookings
+        (state) => state.booking
     );
+    
+    console.log("soy bookings",bookings);
     
 
 
@@ -50,17 +53,38 @@ const UserProfile = () => {
                 </div>
                 <div className='Bookings__Parkings__Container'>
                     <div className='Bookings__Container'>
-                        {bookings.map((booking)=>{
-                            return (
-                                <h2>{booking.adress}</h2>
-                            )
-                        })}
+                    {console.log("soy user.bookings", user.bookings)}
+                    {user &&
+                    user.bookings.map((booking) => {
+                        return (
+                        <div>
+                        {console.log(booking.adress)}
+                        <h2>{booking.adress}</h2>
+                        </div>
+                        )
+                        
+                        
+                    })
+                    
+                    }
+                        
+                    
+                    
+                    <div>
+                    
+                    </div>
                     </div>
                     <div className='Parkings__Container'>
-                        {parkings.map((park) => {
+                        { parkings &&
+
+                            parkings.map((park) => {
                         return (
                             <>
+                            <div className='alquiler' >
                             <h2>{park.adress}</h2>
+                            </div>
+                            
+                            
 
                             <div>
                                 <p>{park.busy}</p>

@@ -72,6 +72,8 @@ const Register = () => {
 
      
       <div class="input-group" >
+      <label> 
+      Nombre
         <input 
           class="effect-5"
           type="text"
@@ -81,7 +83,7 @@ const Register = () => {
             
           })}
         />
-       <label> Nombre</label>
+       </label>
        </div>
       <label>
         Apellidos

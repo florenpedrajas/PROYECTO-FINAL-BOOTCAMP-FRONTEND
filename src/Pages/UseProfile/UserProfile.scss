@@ -44,6 +44,13 @@
         }
         .Parkings__Container{
             height: 50%;
+            .alquiler{
+                display: flex;
+                justify-content: center;
+                border: 2px solid black;
+                border-radius: 20px;
+                
+            }
         }
     }
 }
