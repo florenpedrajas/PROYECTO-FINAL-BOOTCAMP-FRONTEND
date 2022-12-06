@@ -11,13 +11,21 @@ const UserProfile = () => {
         (state) => state.auth
     );
     
+    
+    console.log(user)
+    useEffect(() => {
+        console.log(parkings);
+        dispatch(getUsersParkings(user.parking));
+    }, []);
+
     const { parkings } = useSelector(
         (state) => state.parkings
     );
-    console.log(user)
-    useEffect(() => {
-        dispatch(getUsersParkings(user.parking));
-    }, []);
+
+    const { bookings } = useSelector(
+        (state) => state.bookings
+    );
+    
 
 
 
@@ -42,13 +50,18 @@ const UserProfile = () => {
                 </div>
                 <div className='Bookings__Parkings__Container'>
                     <div className='Bookings__Container'>
-                        
+                        {bookings.map((booking)=>{
+                            return (
+                                <h2>{booking.adress}</h2>
+                            )
+                        })}
                     </div>
                     <div className='Parkings__Container'>
                         {parkings.map((park) => {
                         return (
                             <>
                             <h2>{park.adress}</h2>
+
                             <div>
                                 <p>{park.busy}</p>
                                 <p>{park.size}</p>

@@ -9,8 +9,11 @@ import DatePicker from '../../Components/DatePiker/DatePicker';
 import { useState } from 'react';
 import { userEdit2 } from '../../redux/auth/auth.funtion';
 import Swal from "sweetalert2"
+import { postNewBooking } from '../../redux/newBooking/newBooking.functions';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  let navigate = useNavigate()
   const [showdates, setShowdates] = useState(false)
   const dispatch = useDispatch([]);
   const { parkings, isLoading, error, parking } = useSelector(
@@ -24,9 +27,10 @@ const Home = () => {
     dispatch(getParkings('/'));
   }, []);
 
-  const mostrarAlerta = () => {
+  const postBooking = (park) => {
+    console.log(park);
     Swal.fire("Gracias por tu reserva!")
-    dispatch(userEdit2())
+    dispatch(postNewBooking(park, navigate))
   }
   const [darkMode, setDarkMode] = useState(false);
 
@@ -97,7 +101,7 @@ const Home = () => {
                   ? "DISPONIBLE"
                   : "OCUPADO"}</p>
                   { user && <div className='button' >
-                    <button onClick={() => mostrarAlerta()} >Reserva</button>
+                    <button onClick={() => postBooking(park)} >Reserva</button>
                   </div>
                   }
                   
@@ -136,7 +140,7 @@ const Home = () => {
                   ? "DISPONIBLE"
                   : "OCUPADO"}</p>
                   { user && <div className='button' >
-                    <button onClick={() => mostrarAlerta()} >Reserva</button>
+                    <button onClick={() => postBooking(park)} >Reserva</button>
                   </div>
                   }
                   

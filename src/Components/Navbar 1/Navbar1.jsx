@@ -36,26 +36,5 @@ const Navbar = ({ styles, darkMode }) => {
     )
 }
 
-/* const filter = (event) => {
-    const inputValue = event.target.value.toLowerCase();
-    const filtered = ALLPOKEMONS.filter((pokemon) => {
-      const matchName = pokemon.name.toLowerCase().includes(inputValue);
-      const matchId = pokemon.id === Number(inputValue);
-  
-      return matchName || matchId;
-    });
-  
-    drawPokemon(filtered);
-  };
-  
-  
-  
-  
-  
-  const addAllMyEventsListeners = () => {
-      document.querySelector(".input-search").addEventListener("input", filter);
-      
-      
-  }; */
   
 export default Navbar
