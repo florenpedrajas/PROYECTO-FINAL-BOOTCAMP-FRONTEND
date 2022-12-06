@@ -3,6 +3,14 @@
     src: url("../../../public/assets/AvenirLTStd-Black.otf")
 }
 div{
+    .toggle{
+        cursor: pointer;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px;
+        background-color: black;
+    }
     font-family: circular;
     p{
         margin: 0px;

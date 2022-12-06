@@ -46,11 +46,12 @@ const Home = () => {
     
     
     <div className={darkMode ? "darkMode" : ""}>
-    <button onClick={toggleMode}>Toggle Mode</button>
-    <Navbar styles="navbar_input dark" darkMode={darkMode} />
+    
+    <Navbar styles="navbar_input dark" darkMode={darkMode} />ç
+    
       <div className='body-home'>
       {console.log(parkings)}
-     
+      <button className='toggle' onClick={toggleMode}>Toggle Mode</button>
       
 
       <div className="parkings">
