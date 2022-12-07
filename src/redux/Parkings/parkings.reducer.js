@@ -1,34 +1,35 @@
 const INITIAL_STATE = {
     parkings: [],
-    parking: [],
+    isSearching: false,
     isLoading: false,
-    error: false
-}
+    filtered: [],
+    error: false,
+};
 
-const parkingsReducer = (state = INITIAL_STATE, action) =>{
-    switch (action.type){
+const parkingsReducer = (state = INITIAL_STATE, action) => {
+    const { type, payload } = action;
+
+    switch (type) {
         case "gettingParkings":
-            return {...state, isLoading:true, parkings:[]};
+            return { ...state, isLoading: true, parkings: [] };
         case "getParkings":
-            return {...state, isLoading:false, parkings: action.payload, parking: ['true']};
+            return { ...state, isLoading: false, parkings: payload };
         case "error":
-            return {...state, isLoading:false, parkings:[], parking:[], error: action.payload};
-        case "gettingParking":
-            return {...state, isLoading:true, parking:[]};
-        case "getParking": 
-            return {...state, isLoading:false, parking: action.payload};
-
+            return { ...state, isLoading: false, parkings: [], error: payload };
+        case "startFilterParkings":
+            return { ...state, isLoading: true };
+        case "finishFilterParking":
+            return { ...state, isLoading: false, filtered: payload.filtered, isSearching: payload.isSearching };
         case "editingParking":
-            return {...state, isLoading: true}
+            return { ...state, isLoading: true };
         case "parkingEdited":
-            return {...state, isLoading: false}
+            return { ...state, isLoading: false };
         case "errorEditingParking":
-            return {...state, isLoading: false, error: action.payload}
-
+            return { ...state, isLoading: false, error: payload };
 
         default:
             return state;
     }
-}
+};
 
 export default parkingsReducer;

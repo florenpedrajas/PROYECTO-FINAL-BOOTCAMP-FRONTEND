@@ -71,11 +71,11 @@ const Register = () => {
       {errors.password ? <p>El password no es correcto</p> : null}
 
      
-      <div class="input-group" >
+      <div className="input-group" >
       <label> 
       Nombre
         <input 
-          class="effect-5"
+          className="effect-5"
           type="text"
           name="firstName"
           {...register("firstName", {

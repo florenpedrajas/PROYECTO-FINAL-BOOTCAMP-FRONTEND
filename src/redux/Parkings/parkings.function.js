@@ -1,14 +1,14 @@
 import { API } from "../../Shared/Services/api";
 
-export const getParkings = () => async(dispatch) =>{
-    dispatch({type: 'gettingParkings'})
+export const getParkings = () => async (dispatch) => {
+    dispatch({ type: "gettingParkings" });
     try {
         const result = await API.get("/parkings");
-        dispatch({type:'getParkings', payload: result.data})
+        dispatch({ type: "getParkings", payload: result.data });
     } catch (error) {
-        dispatch({type: 'error', payload: error.message});
+        dispatch({ type: "error", payload: error.message });
     }
-}
+};
 
 export const getUsersParkings = (user) => async (dispatch) => {
     dispatch({ type: "gettingParkings" });
@@ -17,14 +17,14 @@ export const getUsersParkings = (user) => async (dispatch) => {
         const parkings = [];
         try {
             for (let i = 0; i < ids.length; i++) {
-                    if(ids[i] !== null){
-                        const parking = await API.get("parkings/" + ids[i]);
-                        parkings.push(parking.data);
-                    } else {
-                        console.log('vacio')
-                    }
+                if (ids[i] !== null) {
+                    const parking = await API.get("parkings/" + ids[i]);
+                    parkings.push(parking.data);
+                } else {
+                    console.log("vacio");
+                }
             }
-            console.log(parkings)
+            console.log(parkings);
         } catch (error) {
             dispatch({ type: "error", payload: error.message });
         }
@@ -38,46 +38,47 @@ export const parkingEdit = (user, id) => async (dispatch) => {
     dispatch({ type: "editingParking" });
     try {
         const mod = {
-            users: user.toString()
+            users: user.toString(),
         };
-        console.log(mod)
+        console.log(mod);
         await API.put("/parkings/edit/" + id, mod);
-        dispatch({ type: "parkingEdited"});
+        dispatch({ type: "parkingEdited" });
     } catch (error) {
         dispatch({ type: "errorEditingParking", payload: error.message });
     }
-    };
+};
 
-    
 export const parkingEdit2 = (idBooking, id) => async (dispatch) => {
     dispatch({ type: "editingParking" });
     try {
         const mod = {
-            bookings: idBooking.toString()
+            bookings: idBooking.toString(),
         };
-        console.log(mod)
+        console.log(mod);
         await API.put("/parkings/edit/" + id, mod);
-        dispatch({ type: "parkingEdited"});
+        dispatch({ type: "parkingEdited" });
     } catch (error) {
         dispatch({ type: "errorEditingParking", payload: error.message });
     }
-    };
+};
 
-export const filterParkings = (event, parkings) => async(dispatch) =>{
-    dispatch({type: 'gettingParking'})
+export const filterParkings = (searchTerm) => async (dispatch, getState) => {
+    dispatch({ type: "startFilterParkings" });
+    const { parkings: { parkings } } = getState();
+    
     try {
-        let garage = parkings
-        let inputValue =  event.target.value.toLowerCase()
-        let filterGarajes = garage.filter((parking) => {
-            const matchName = parking.adress.toLowerCase().includes(inputValue)
-            console.log(matchName)
-            return matchName
-        }
+        const searchTermLower = searchTerm.toLowerCase();
 
-        )
-        console.log(filterGarajes)
-        dispatch({type:'getParking', payload: filterGarajes})
+        const filtered = parkings.filter((parking) => {
+            const matchName = parking.adress?.toLowerCase().includes(searchTermLower);
+            const matchSize = parking.size?.includes(searchTermLower);
+
+            return matchName || matchSize;
+        });
+        dispatch({
+            type: "finishFilterParking",
+            payload: { filtered: filtered, isSearching: !!searchTerm} });
     } catch (error) {
-        dispatch({type: 'error', payload: error.message});
+        dispatch({ type: "error", payload: error.message });
     }
-}
+};
