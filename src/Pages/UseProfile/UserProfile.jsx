@@ -17,7 +17,7 @@ const UserProfile = () => {
     const { parkings } = useSelector((state) => state.parkings);
     console.log("soy parkings");
 
-    const { bookings } = useSelector((state) => state.booking);
+    
 
     return (
         <>

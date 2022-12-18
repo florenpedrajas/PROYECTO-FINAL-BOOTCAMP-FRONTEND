@@ -44,8 +44,8 @@ export const userEdit = (garage) => async (dispatch) => {
             parking: garage.toString(),
         };
         console.log(mod);
-        await API.put("/users/edit/" + localStorage.getItem("id"), mod);
-        dispatch({ type: "edit_user" });
+        const response = await API.put("/users/edit/" + localStorage.getItem("id"), mod);
+        dispatch({ type: "edit_user", payload: response.data.userModificado });
     } catch (error) {
         dispatch({ type: "edit_users_error", payload: error.message });
     }
@@ -73,7 +73,7 @@ export const newUser = (formdata, navigate) => async (dispatch) => {
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("id", result.data.user._id);
         dispatch({ type: "register_user_ok", payload: result.data.user });
-        navigate("/pepe");
+        navigate("/");
     } catch (error) {
         dispatch({ type: "register_user_error", payload: error.message });
     }

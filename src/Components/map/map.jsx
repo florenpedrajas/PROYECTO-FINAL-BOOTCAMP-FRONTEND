@@ -5,11 +5,18 @@ import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from '../Navbar 1/Navbar1'
 import { MapContainer, TileLayer, useMap, Marker, Popup  } from 'react-leaflet'
+import { useDispatch, useSelector } from 'react-redux'
+import { getParkings } from '../../redux/Parkings/parkings.function'
+
+
+
 
 
 
 const Map = (prop) => {
-    
+  const dispatch = useDispatch()
+  const { parkings } = useSelector((state) => state.parkings);
+
 
   const [state,setState] = useState({
     longitude:"",
@@ -19,6 +26,11 @@ const Map = (prop) => {
 
   
   useEffect(()=>{
+    if (!parkings.length){
+      dispatch(getParkings())
+    }
+    
+    
     navigator.geolocation.getCurrentPosition(
       function(position){
         console.log(position);
@@ -30,17 +42,17 @@ const Map = (prop) => {
     )
   },[])
 
-const pos = [40.458384213400386, -3.694974886507998]
+/* const pos = [40.458384213400386, -3.694974886507998] */
 const upgrade = [40.45845766268682, -3.694942702058932]
 
-const garages={
+/* const garages={
   garage1: [40.457976025041255, -3.697571266878767],
   garage2: [40.45493739151863, -3.6924107976966885],
   garage3: [40.45761825541889, -3.6816575105324683],
   garage4 : [40.46940707646363, -3.69507898796046],
   garage5 : [40.45398964572669, -3.693428466473853],
   garage6 : [40.44911670297784, -3.6784043507762414]
-}
+} */
 
     return (
     <>
@@ -49,13 +61,13 @@ const garages={
       <div>
     
       
-    <MapContainer center={upgrade} zoom={15} scrollWheelZoom={true}>
+    <MapContainer center={{lat:state.latitude, lng:state.longitude}} zoom={15} scrollWheelZoom={true}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
     
-    <Marker  position={upgrade}  icon={IconLocation}  >
+    {/* <Marker  position={upgrade}  icon={IconLocation}  >
     <Popup>
         Academia Upgrade
     </Popup>
@@ -95,7 +107,22 @@ const garages={
     5€
     Calle de la Infanta Mercedes, 70, 28020-Madrid
     </Popup>
-    </Marker>
+    </Marker> */}
+    {console.log(parkings)}
+    {parkings &&
+     
+      parkings.map((parking) => {
+      return (
+        <Marker
+      position={{lat:parking.latitude,lng:parking.longitude}} icon={IconLocation}
+      >
+        <Popup>
+          {parking.adress}
+        </Popup>
+      </Marker>
+      )
+      
+    })}
   </MapContainer>,
   </div>)}
 
